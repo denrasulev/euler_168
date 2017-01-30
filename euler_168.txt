@@ -1,0 +1,57 @@
+The number has this right-rotation property has the form:
+
+ABCD and DABC = k*ABCD 
+We can easily see that, k should be less than 10, because, if k larger than 10, k*ABCD will have more digits than ABCD.
+
+For each number of k from 1 to 9, and with most significant digit (MSD) is a, a from k to 9, we can find the minimum number X that satisfy X / k is the left rotation of X, and X has its MSD is a.
+
+Pseudo-code:
+
+for(int k = 1; k < 10; k++){
+   for(int a = k ; a < 10; a++){
+       long X = 0;
+       int cur = a;
+       int mod = 0;
+       do{
+          X = X*10 + cur;
+          cur = (mod*10 + cur) / k; //Result of this division is the next digit of X
+          mod = (mod*10 + cur)%k; 
+          if(pair <cur, mod> seen before)
+             break;         
+       }while(cur != a && mod != 0);
+       //Notice that we will iterate less than 100 steps, as there is only 10*10 value of pair (cur, mod).
+   }
+}
+We notice that, all number Y < 10 ^ 100 which Y / k is the left rotation of Y will have the form XXXXXX...
+
+So, the job is now simple, as each Y will end with X, just keep the last 5 digit of X and multiply with the amount of valid Y numbers ( = 100 / number of digits of X).
+
+Sum all those 5 digits, we will get the answer for this problem.
+
+
+ [1]      11      22      33      44      55      66      77      88      99     111     222     333     444     555     666     777
+[17]     888     999    1111    2222    3333    4444    5555    6666    7777    8888    9999   11111   22222   33333   44444   55555
+[33]   66666   77777   88888   99999  102564  111111  128205  142857  153846  179487  205128  222222  230769  333333  444444  555555
+[49]  666666  777777  888888  999999 1111111 2222222 3333333 4444444 5555555 6666666 7777777 8888888 9999999
+
+m = int(raw_input())
+s = 0
+
+for i in xrange(2, m + 1):
+     n = pow(10, i) - 1
+     for k in xrange(1, 10):
+          z = k * n
+          for j in xrange(9, 99, 10):
+               if k > j // 10 and z % j == 0:
+                    s += z // j
+
+print s % 100000
+
+input=2, output=495
+input=3, output=5490
+input=4, output=55485
+input=5, output=55480
+input=6, output=98331
+input=7, output=98326
+input=50, output=93539
+input=100, output=59206
