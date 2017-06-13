@@ -1,0 +1,53 @@
+---
+title: "Project_Euler_168"
+author: "Denis Rasulev"
+date: "1/2/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Intro
+
+This problem is a programming version of Problem 168 (http://projecteuler.net/problem=168) from projecteuler.net (http://projecteuler.net/)
+
+Consider the number 142857. We can right-rotate this number by moving the last digit (7) to the front of it, giving us 714285. It can be verified that 714285 = 5 x 142857. This demonstrates an unusual property of 142857: it is a divisor of its right-rotation.
+
+Find the last 5 digits of the sum of all integers n, 10 < n < 10^m, that have this property.
+
+Input Format
+One integer is given on first line representing m.
+
+Constraints
+2 <= m <= 100
+
+Output Format
+Print one integer which is the answer to the problem.
+
+Sample Input
+2
+
+Sample Output
+495
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
