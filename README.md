@@ -8,17 +8,18 @@ Consider the number 142857. We can right-rotate this number by moving the last d
 
 Find the last 5 digits of the sum of all integers n, 10 < n < 10^m, that have this property.
 
-*Input Format*
+**Input Format**
+
 One integer is given on first line representing m.
 
-*Constraints*
+**Constraints**
 2 <= m <= 100
 
-*Output Format*
+**Output Format**
 Print one integer which is the answer to the problem.
 
-*Sample Input*
+**Sample Input**
 2
 
-*Sample Output*
+**Sample Output**
 495
